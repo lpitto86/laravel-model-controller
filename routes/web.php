@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\Guest\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,12 @@ use App\Http\Controllers\Admin\BookController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::get('/chi-siamo', [PageController::class, 'about'])->name('about');
+
+Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
 
 // Route::METODO(PERCORSO CON CUI ARRIVARE ALLA PAGINA, FUNZIONE DI CALLBACK CHE MI CREA LA RISPOSTA DA DARE ALL UTENTE)
 
